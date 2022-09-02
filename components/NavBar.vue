@@ -7,8 +7,9 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <b-nav-form>
-            <b-form-input v-model="activeUserPubkey" size="sm" class="mr-sm-2 pubkey-field"
+          <b-nav-form @submit="setActiveUserPubkey">
+            <b-form-input v-model="activeUserPubkey" size="sm"
+                          class="mr-sm-2 pubkey-field"
                           placeholder="Enter public key to use"></b-form-input>
             <b-button size="sm" class="my-2 my-sm-0" @click="setActiveUserPubkey">Set active</b-button>
           </b-nav-form>
@@ -27,7 +28,8 @@ export default {
     }
   },
   methods: {
-    setActiveUserPubkey() {
+    setActiveUserPubkey(event) {
+      event.preventDefault()
       this.$store.commit("setActiveUserPubkey", this.activeUserPubkey)
     }
   }
