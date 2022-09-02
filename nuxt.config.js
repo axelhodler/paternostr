@@ -6,7 +6,7 @@ export default {
   target: 'static',
   // See: https://nuxtjs.org/deployments/github-pages/
   router: {
-    base: '/paternostr/' // reponame
+    base: process.env.NODE_ENV === "production" ? "/paternostr/" : "/",
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
