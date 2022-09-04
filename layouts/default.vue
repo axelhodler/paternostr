@@ -15,8 +15,13 @@ export default {
   created() {
     const pool = relayPool()
 
-    const damus = 'wss://relay.damus.io'
-    pool.addRelay(damus, {read: true, write: false})
+    const chosenRelay = this.$route.query.relay
+    if (chosenRelay) {
+      pool.addRelay(chosenRelay, {read: true, write: false})
+    } else {
+      const damusRelay = 'wss://relay.damus.io'
+      pool.addRelay(damusRelay, {read: true, write: false})
+    }
 
     this.$store.commit('setPool', pool)
   }
