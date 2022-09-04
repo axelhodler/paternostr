@@ -20,6 +20,11 @@ export default {
   },
   created() {
     this.initUser()
+    const pubkeyParam = this.$route.query.pubkey
+    // validate these
+    if (pubkeyParam) {
+      this.$store.commit("setActiveUserPubkey", pubkeyParam)
+    }
   },
   methods: {
     initUser() {
