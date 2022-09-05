@@ -7,7 +7,7 @@
         <small>
           {{ metadata.about }}
         </small>
-        <b-badge v-if="openedProfileIsContact">Followed by you</b-badge>
+        <b-badge v-if="openedProfileIsContact">Followed by active key</b-badge>
         <small>
           <NuxtLink :to="pubkey + '/follows'">
             <p v-if="follower_count > 0" class="mb-1">Following: {{ follower_count }}</p>
